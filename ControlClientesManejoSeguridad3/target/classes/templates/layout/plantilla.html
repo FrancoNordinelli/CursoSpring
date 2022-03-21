@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Plantilla</title>
+</head>
+<body>
+	<header th:fragment="header">
+		<h1 th:text="#{plantilla.titulo}">Título</h1>
+	</header>
+	<footer thfragment="footer">
+	<div>
+	<br>
+	<a th:href="@{/(lang=es)}">ES</a> |
+	<a th:href="@{/(lang=en)}">EN</a>
+	<br>
+	<span>[[#{plantilla.pie-pagina}]]<a href="http://www.google.com.ar" target="_blank">DR</a></span>
+	<form method="POST" th:action="@{/logout}">
+		<b>User:</b><span sec:authentication="name">Usuario de login</span>|
+		<b>Roles</b><span sec:authentication="principal.authorities">Roles</span>|
+		<a href="#" onclick="this.parentNode.submit()";>Logout</a>
+	</form>
+	</div>
+	</footer>
+</body>
+</html>
